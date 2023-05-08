@@ -64,14 +64,11 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
         File myFile = new File(filePath);
         size = (int)myFile.length();
         return size;
-
-
     }
     /** return a specific file in form byte[]
      * @param pathOnServer file path.
-     * @throws RemoteException
      */
-    public byte[] do_get (String pathOnServer) throws RemoteException {
+    public byte[] do_get (String pathOnServer) {
         File toClient = new File (pathOnServer)	;
         System.out.println("Searching file name= " + pathOnServer);
         byte[] data = new byte[getFileSize(pathOnServer)];

@@ -99,8 +99,6 @@ public class RmiImplementation implements Serializable {
 
     }
 
-
-
     /**
      * upload a specific file to server
      * @param pathOnClient File path on client machine

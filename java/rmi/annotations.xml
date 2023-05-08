@@ -1,0 +1,5 @@
+<root>
+    <item name='java.rmi.RemoteException'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

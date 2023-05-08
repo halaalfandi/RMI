@@ -13,5 +13,4 @@ public interface RmiInterface extends Remote{
     String do_rmdir(String pathOnServer) throws RemoteException;
     void do_shutdown() throws RemoteException;
 
-
 }

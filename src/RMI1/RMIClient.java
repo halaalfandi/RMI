@@ -23,7 +23,7 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
     /**
      * Constructor for the remote object
      * @param s the file directory
-     * @throws //RemoteException. Object export could potentially throw a java.rmi.RemoteException
+     * @throws Object export could potentially throw a java.rmi.RemoteException
      */
     protected RMIClient(String s, Registry r) throws RemoteException {
         File serverStorage = new File (s);
@@ -36,9 +36,8 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
      * @param data
      * @param dirPath
      * @param fileLength
-     * @throws RemoteException
      */
-    public void do_put(byte[] data, String dirPath, int fileLength) throws RemoteException {
+    public void do_put(byte[] data, String dirPath, int fileLength) {
 
         try {
             File inFile = new File(dirPath);
@@ -59,9 +58,8 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
     /**
      * return the size of a specific file
      * @param filePath
-     * @throws RemoteException
      */
-    public int getFileSize (String filePath) throws RemoteException {
+    public int getFileSize (String filePath) {
         int size;
         File myFile = new File(filePath);
         size = (int)myFile.length();
@@ -99,9 +97,8 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
      * Returns an array of abstract pathnames denoting the files in the directory
      * denoted by this abstract pathname.
      * @param pathOnServer file path.
-     * @throws RemoteException
      */
-    public String[] do_dir(String pathOnServer) throws RemoteException {
+    public String[] do_dir(String pathOnServer) {
         String sDir = pathOnServer;
         File dir = new File(sDir);
         if (dir.isDirectory() && dir.exists()) {
@@ -113,7 +110,7 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
         return dir.list();
     }// end do_dir()
 
-    public String do_mkdir (String pathOnServer) throws RemoteException{
+    public String do_mkdir (String pathOnServer) {
         String directoryPath = pathOnServer;
         String message;
         File dir = new File(directoryPath);
@@ -139,9 +136,9 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
     /**
      * removes a directory if its a directory. if the directory is not empty delete
      * all the files inside the directory along with the directory itself
-     * @param PathOnServer directory path to be deleted
+     * @param pathOnServer directory path to be deleted
      */
-    public String do_rmdir(String pathOnServer) throws RemoteException {
+    public String do_rmdir(String pathOnServer) {
         String directoryPath = pathOnServer;
         String message;
 
@@ -167,7 +164,7 @@ public class RMIClient extends UnicastRemoteObject implements RmiInterface, Seri
     /**
      * shutdown the RMI server
      */
-    public void do_shutdown() throws RemoteException {
+    public void do_shutdown() {
         try{
 
 
